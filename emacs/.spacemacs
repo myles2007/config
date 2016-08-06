@@ -40,6 +40,7 @@ values."
      emacs-lisp
      git
      github
+     (haskell :variables haskell-enable-hindent-style "chris-done")
      html
      javascript
      markdown
