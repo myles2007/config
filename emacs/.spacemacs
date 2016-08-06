@@ -271,6 +271,7 @@ layers configuration. You are free to put any user code."
   (global-git-commit-mode t)
   (setq python-shell-interpreter "python")
   (global-company-mode)
+  (setq projectile-enable-caching t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
