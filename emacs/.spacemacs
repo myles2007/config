@@ -56,8 +56,7 @@ values."
      syntax-checking
      yaml
      (version-control :variables
-                      version-control-diff-tool 'git-gutter
-                      version-control-global-margin t
+                      version-control-diff-tool 'git-gutter+
                       )
     )
    ;; List of additional packages that will be installed without being
@@ -230,7 +229,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers `prog-mode
+   dotspacemacs-line-numbers `relative
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
