@@ -10,8 +10,12 @@ setopt COMPLETE_IN_WORD
 
 # Enable save history of 1000 cmds, write to a certain file
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=5000
+SAVEHIST=10000
+
+setopt    appendhistory     # Append history to the history file (no overwriting)
+setopt    sharehistory      # Share history across terminals
+setopt    incappendhistory  # Immediately append to the history file, not just when a term is killed
 
 # Export some global settings
 export EDITOR="vim"
@@ -57,11 +61,14 @@ zstyle ':completion:*' insert-tab pending
 zstyle ':completion:*' menu select=2
 
 # Activate virtualenv bottles named .venv automatically upon cd
-function chpwd() {
-    if [ -d .venv ]; then
-        . .venv/bin/activate
-    fi
-}
+# function chpwd() {
+    # if [ -d .venv ]; then
+        # . .venv/bin/activate
+    # fi
+# }
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # If a home venv exists, turn it on
 [[ -d ~/.venv  ]] && . ~/.venv/bin/activate
@@ -77,6 +84,13 @@ function awsclear {
 }
 
 function awsrole {
-    aws sts get-caller-identity --profile $1 > /dev/null
+    aws sts get-caller-identity --duration-in-seconds 900 --profile $1 > /dev/null
     eval $(jq -r '.Credentials | "export AWS_ACCESS_KEY_ID="+.AccessKeyId, "export AWS_SECRET_ACCESS_KEY="+.SecretAccessKey, "export AWS_SESSION_TOKEN="+.SessionToken' < ~/.aws/cli/cache/$1--*.json)
 }
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
