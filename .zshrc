@@ -3,6 +3,13 @@
 source <(antibody init)
 eval $(gdircolors ~/.dircolors)
 
+# Alias to interact with bare git repository for configuration.
+# Used to add, update, delete, or otherwise manager configurations.
+# Example: git checkout <branch> to get a configuration represented
+#          by a specific branch.
+alias config='/usr/bin/git --git-dir=$HOME/.configurations/ --work-tree=$HOME'
+
+
 # Better ls alias for Mac
 alias ls='gls --color'
 
