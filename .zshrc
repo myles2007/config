@@ -36,9 +36,9 @@ else
     compinit -C -i
 fi
 
-# compinit -i
-# autoload -U bashcompinit
-# bashcompinit
+autoload bashcompinit
+bashcompinit
+complete -C '/usr/local/bin/aws_completer' aws
 
 PLUGINS="$HOME/.zsh_plugins"
 antibody bundle < $PLUGINS
