@@ -236,3 +236,5 @@ export PATH="/Users/mylesloffler/.rd/bin:$PATH"
 
 # Created by `pipx` on 2022-09-14 14:52:06
 export PATH="$PATH:/Users/mylesloffler/.local/bin"
+
+eval "$(_AWS_SSO_UTIL_COMPLETE=source_zsh aws-sso-util)"
