@@ -106,6 +106,9 @@ if dein#load_state(expand('~/.vim/bundles'))
 
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 
+  call dein#add('nvim-lua/plenary.nvim')
+  call dein#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.0' })
+
   " colorscheme blayden " set our customized colorscheme
   set background=dark
 
@@ -326,6 +329,13 @@ syntax enable
     endfunction
     vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
     vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
+
+    " Find files using Telescope command-line sugar.
+    nnoremap <leader>ff <cmd>Telescope find_files<cr>
+    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+    nnoremap <leader>fb <cmd>Telescope buffers<cr>
+    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
     " 'Parameters' Operator mapping
     " Usage: dp - Delete between ()
     onoremap p i(
