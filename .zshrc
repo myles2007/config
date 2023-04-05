@@ -4,6 +4,8 @@
 # zmodload zsh/zprof
 
 source <(antibody init)
+export NVM_DIR="$HOME/.nvm"
+zstyle ':omz:plugins:nvm' lazy yes
 eval $(gdircolors ~/.dircolors)
 
 # Alias to interact with bare git repository for configuration.
@@ -98,12 +100,6 @@ function awsrole {
     eval $(jq -r '.Credentials | "export AWS_ACCESS_KEY_ID="+.AccessKeyId, "export AWS_SECRET_ACCESS_KEY="+.SecretAccessKey, "export AWS_SESSION_TOKEN="+.SessionToken' < ~/.aws/cli/cache/$1--*.json)
 }
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
 
 secret () {
         output=~/"${1}".$(date +%s).enc
