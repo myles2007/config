@@ -8,6 +8,9 @@ zstyle ':omz:plugins:nvm' lazy yes
 
 eval $(gdircolors ~/.dircolors)
 
+eval "$(starship init zsh)"
+export VIRTUAL_ENV_DISABLE_PROMPT=1 # <--- Don't have venv modify the prompt when active, starship includes it
+
 # Alias to interact with bare git repository for configuration.
 # Used to add, update, delete, or otherwise manager configurations.
 # Example: git checkout <branch> to get a configuration represented
