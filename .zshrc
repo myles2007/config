@@ -3,9 +3,9 @@
 # Uncomment line below to enable profiling of load times
 # zmodload zsh/zprof
 
-source <(antibody init)
 export NVM_DIR="$HOME/.nvm"
 zstyle ':omz:plugins:nvm' lazy yes
+
 eval $(gdircolors ~/.dircolors)
 
 # Alias to interact with bare git repository for configuration.
@@ -45,8 +45,8 @@ autoload bashcompinit
 bashcompinit
 complete -C '/usr/local/bin/aws_completer' aws
 
-PLUGINS="$HOME/.zsh_plugins"
-antibody bundle < $PLUGINS
+# To update, run: antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+source ~/.zsh_plugins.sh
 
 
 # ---- Completion ----
