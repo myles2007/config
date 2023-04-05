@@ -110,3 +110,20 @@ export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 gpg-connect-agent updatestartuptty /bye > /dev/null
+
+function bootstrap_yubikey_gpg {
+    chmod 700 ~/.gnupg
+    chmod 600 ~/.gnupg/gpg.conf ~/.gnupg/gpg-agent.conf
+
+    # Refreshes shadow keys. You may want to try this command
+    # individually if you're getting messages indicating there
+    # is no secret key. If it doesn't work the first time, try
+    # reinserting the key and running it again.
+    gpg --card-status
+
+    gpg --edit-card
+}
+
+function update_gpg_ownertrust {
+    gpg --export-owner
+}
