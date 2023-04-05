@@ -66,9 +66,6 @@ if dein#load_state(expand('~/.vim/bundles'))
   " Snippets are separated from the engine. Add this if you want them:
   call dein#add('honza/vim-snippets')
 
-  " If you pip install "howdoi" you can use it in Vim
-  call dein#add('laurentgoudet/vim-howdoi')
-
   " Tagbar for browsing source code trees.
   call dein#add('majutsushi/tagbar')
 
@@ -305,8 +302,6 @@ syntax enable
     " nnoremap <C-j> <C-w>j
     " nnoremap <C-k> <C-w>k
     " nnoremap <C-l> <C-w>l
-    " " Howdoi mapping
-    map <Leader>hdi <Plug>Howdoi
     " Refresh syntax highlighting
     nnoremap <Leader>rf :syntax off<return>:syntax on<return>
     " Fix all the whitespace in a file. Re-tabs and removes trailing whitespace.
