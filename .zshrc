@@ -1,4 +1,7 @@
 #! /bin/zsh
+#
+# Uncomment line below to enable profiling of load times
+# zmodload zsh/zprof
 
 source <(antibody init)
 eval $(gdircolors ~/.dircolors)
