@@ -17,6 +17,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1 # <--- Don't have venv modify the prompt whe
 #          by a specific branch.
 alias config='/usr/bin/git --git-dir=$HOME/.configurations/ --work-tree=$HOME'
 
+eval "$(direnv hook zsh)" # <--- Enable direnv (auto load/unload .envrc files after approval)
 
 # Better ls alias for Mac
 alias ls='gls --color'
