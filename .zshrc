@@ -127,3 +127,28 @@ function bootstrap_yubikey_gpg {
 function update_gpg_ownertrust {
     gpg --export-owner
 }
+
+function get_failed_report_factory_executions() {
+    STATE_MACHINE_ARN=arn:aws:states:us-east-1:313750358190:stateMachine:ReportFactoryReportProcessStateMachine-prd
+    aws --profile ${AWS_PROFILE:?Run this comamnd with AWS_PROFILE set to a non-empty value} stepfunctions list-executions --state-machine-arn $STATE_MACHINE_ARN | jq --raw-output '.executions[] | select(.status == "FAILED") | {arn: .executionArn, startTime: .startDate | todate}'
+}
+
+function get_report_factory_executions_as_csv() {
+    STATE_MACHINE_ARN=arn:aws:states:us-east-1:313750358190:stateMachine:ReportFactoryReportProcessStateMachine-prd
+    aws --profile ${AWS_PROFILE:?Run this comamnd with AWS_PROFILE set to a non-empty value} stepfunctions list-executions --state-machine-arn $STATE_MACHINE_ARN |  \
+        jq -r '.executions | map({startDate: .startDate | todate, stopDate: (try (.stopDate | todate) catch "STILL RUNNING"), name: .name, status: .status, executionArn: .executionArn})
+                           | (map(keys) | add | unique) as $cols | map(. as $row | $cols | map($row[.])) as $rows | $cols, $rows[] | @csv'
+}
+
+function get_report_factory_executions_raw() {
+    STATE_MACHINE_ARN=arn:aws:states:us-east-1:313750358190:stateMachine:ReportFactoryReportProcessStateMachine-prd
+    aws --profile ${AWS_PROFILE:?Run this comamnd with AWS_PROFILE set to a non-empty value} stepfunctions list-executions --state-machine-arn $STATE_MACHINE_ARN
+}
+
+function get_logs_for_machine_execution() {
+    EXECUTION_ARN=${1:?An execution ARN must be provided as the first argument}
+    AWS_PROFILE=${AWS_PROFILE:?Run this command with AWS_PROFILE set to a non-empty value}
+    EXECUTION_LOGSTREAM=$(aws --profile $AWS_PROFILE stepfunctions get-execution-history --execution-arn $EXECUTION_ARN \
+                         | jq --raw-output '.events[-2].stateEnteredEventDetails.input | fromjson | .error.Cause | fromjson | .Attempts[0].Container.LogStreamName')
+    aws --profile $AWS_PROFILE logs get-log-events --log-group-name /aws/batch/job --log-stream-name $EXECUTION_LOGSTREAM | jq --raw-output '.events[].message'
+}
