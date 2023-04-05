@@ -238,3 +238,10 @@ export PATH="/Users/mylesloffler/.rd/bin:$PATH"
 export PATH="$PATH:/Users/mylesloffler/.local/bin"
 
 eval "$(_AWS_SSO_UTIL_COMPLETE=source_zsh aws-sso-util)"
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mylesloffler/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mylesloffler/tools/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mylesloffler/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mylesloffler/tools/google-cloud-sdk/completion.zsh.inc'; fi
