@@ -247,3 +247,5 @@ if [ -f '/Users/mylesloffler/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Us
 if [ -f '/Users/mylesloffler/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mylesloffler/tools/google-cloud-sdk/completion.zsh.inc'; fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+#zprof
