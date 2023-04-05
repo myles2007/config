@@ -34,7 +34,7 @@ setopt    sharehistory      # Share history across terminals
 setopt    incappendhistory  # Immediately append to the history file, not just when a term is killed
 
 # Export some global settings
-export EDITOR="vim"
+export EDITOR="nvim"
 export LESS="-R"
 
 autoload -Uz compinit
