@@ -227,6 +227,12 @@ _aws-profile-completer () {
 }
 complete -F _aws-profile-completer aws-profile
 
+
+
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/mylesloffler/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# Created by `pipx` on 2022-09-14 14:52:06
+export PATH="$PATH:/Users/mylesloffler/.local/bin"
