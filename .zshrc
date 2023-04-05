@@ -76,18 +76,9 @@ zstyle ':completion:*' insert-tab pending
 # menu if nb items > 2
 zstyle ':completion:*' menu select=2
 
-# Activate virtualenv bottles named .venv automatically upon cd
-# function chpwd() {
-    # if [ -d .venv ]; then
-        # . .venv/bin/activate
-    # fi
-# }
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-# If a home venv exists, turn it on
-[[ -d ~/.venv  ]] && . ~/.venv/bin/activate
 
 function awsclearshell {
     echo unset AWS_SESSION_TOKEN
