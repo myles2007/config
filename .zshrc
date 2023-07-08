@@ -3,8 +3,12 @@
 # Uncomment line below to enable profiling of load times
 # zmodload zsh/zprof
 
+
 export NVM_DIR="$HOME/.nvm"
 zstyle ':omz:plugins:nvm' lazy yes
+
+
+bindkey '^R' history-incremental-search-backward
 
 eval $(gdircolors ~/.dircolors)
 
