@@ -3,6 +3,8 @@
 # Uncomment line below to enable profiling of load times
 # zmodload zsh/zprof
 
+source /usr/local/opt/antidote/share/antidote/antidote.zsh
+
 
 export NVM_DIR="$HOME/.nvm"
 zstyle ':omz:plugins:nvm' lazy yes
@@ -53,7 +55,7 @@ autoload bashcompinit
 bashcompinit
 complete -C '/usr/local/bin/aws_completer' aws
 
-# To update, run: antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+# To update, run: antidote bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 source ~/.zsh_plugins.sh
 
 
