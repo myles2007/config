@@ -5,6 +5,7 @@
 
 source /usr/local/opt/antidote/share/antidote/antidote.zsh
 
+export HOMEBREW_NO_AUTO_UPDATE=1 # Don't auto update everything with brew... let me decide.
 
 export NVM_DIR="$HOME/.nvm"
 zstyle ':omz:plugins:nvm' lazy yes
