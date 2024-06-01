@@ -294,3 +294,8 @@ alias 'gh?'='copilot_gh-assist';
 alias 'wts'='copilot_what-the-shell';
 
 #zprof
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
+
+source ~/git/fzf-git.sh/fzf-git.sh
+
