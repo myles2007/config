@@ -294,6 +294,10 @@ alias 'gh?'='copilot_gh-assist';
 alias 'wts'='copilot_what-the-shell';
 
 #zprof
+
+# Add libpq (without PSQL Server) installed via Brew
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
