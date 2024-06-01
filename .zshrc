@@ -299,3 +299,4 @@ eval "$(fzf --zsh)"
 
 source ~/git/fzf-git.sh/fzf-git.sh
 
+export BAT_THEME=Dracula
