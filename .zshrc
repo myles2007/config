@@ -3,13 +3,14 @@
 # Uncomment line below to enable profiling of load times
 # zmodload zsh/zprof
 
-source /usr/local/opt/antidote/share/antidote/antidote.zsh
+source /opt/homebrew/Cellar/antidote/1.9.6/share/antidote/antidote.zsh
 
 export HOMEBREW_NO_AUTO_UPDATE=1 # Don't auto update everything with brew... let me decide.
 
 export NVM_DIR="$HOME/.nvm"
-#[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+#[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 zstyle ':omz:plugins:nvm' lazy yes
 
@@ -57,7 +58,7 @@ fi
 
 autoload bashcompinit
 bashcompinit
-complete -C '/usr/local/bin/aws_completer' aws
+complete -C '/opt/homebrew/bin/aws_completer' aws
 
 # To update, run: antidote bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 source ~/.zsh_plugins.sh
@@ -296,7 +297,7 @@ alias 'wts'='copilot_what-the-shell';
 #zprof
 
 # Add libpq (without PSQL Server) installed via Brew
-export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
@@ -304,3 +305,6 @@ eval "$(fzf --zsh)"
 source ~/git/fzf-git.sh/fzf-git.sh
 
 export BAT_THEME=Dracula
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
