@@ -18,14 +18,24 @@ if &runtimepath !~# '/dein.vim'
         \ .. s:dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
 endif
 
-" Set Dein base path (required)
-let s:dein_base = '/Users/mylesloffler/.local/share/dein'
+" Set dein base path (required)
+let s:dein_base = '~/.cache/dein/'
 
-" Set Dein source path (required)
-let s:dein_src = '/Users/mylesloffler/.local/share/dein/repos/github.com/Shougo/dein.vim'
+" Set dein source path (required)
+let s:dein_src = '~/.cache/dein/repos/github.com/Shougo/dein.vim'
 
-" Set Dein runtime path (required)
-execute 'set runtimepath+=' . s:dein_src
+" Set dein runtime path (required)
+execute 'set runtimepath+=' .. s:dein_src
+
+
+"" Set Dein base path (required)
+"let s:dein_base = '/Users/mylesloffler/.local/share/dein'
+"
+"" Set Dein source path (required)
+"let s:dein_src = '/Users/mylesloffler/.local/share/dein/repos/github.com/Shougo/dein.vim'
+"
+"" Set Dein runtime path (required)
+"execute 'set runtimepath+=' . s:dein_src
 
 " Call Dein initialization (required)
 call dein#begin(s:dein_base)
