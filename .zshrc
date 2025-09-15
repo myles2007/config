@@ -8,7 +8,7 @@ autoload -U edit-command-line
 zle -N edit-command-line 
 bindkey -M vicmd v edit-command-line
 
-source /opt/homebrew/Cellar/antidote/1.9.6/share/antidote/antidote.zsh
+source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
 
 export HOMEBREW_NO_AUTO_UPDATE=1 # Don't auto update everything with brew... let me decide.
 
