@@ -1,0 +1,9 @@
+[diff]
+    pager = "delta"
+
+[data]
+    GIT_CLONE_ROOT = "git"
+
+[hooks.read-source-state.pre]
+    script = ".local/share/chezmoi/.ensure_bootstrapped.sh"
+
