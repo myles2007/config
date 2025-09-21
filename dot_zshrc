@@ -66,7 +66,8 @@ bashcompinit
 complete -C '/opt/homebrew/bin/aws_completer' aws
 eval "$(chezmoi completion zsh)"
 
-# To update, run: antidote bundle < ~/.zsh_plugins > ~/.zsh_plugins.sh
+# Depends on execution of:: antidote bundle < ~/.zsh_plugins > ~/.zsh_plugins.sh
+# This should run automatically via chezmoi when `.zsh_plugins` changes
 source ~/.zsh_plugins.sh
 
 
