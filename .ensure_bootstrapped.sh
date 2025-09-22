@@ -11,7 +11,7 @@ function log_verbose() {
 function ensure_homebrew_installed() {
     which -s brew
     if [[ $? != 0 ]] ; then
-        curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         log_verbose "Homebrew installed!"
     else
         log_verbose "Homebrew already installed."
