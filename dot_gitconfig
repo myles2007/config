@@ -28,3 +28,5 @@ signingkey = 0x61801B5B86FE7AB3
 
 [diff]
     colorMoved = default
+[init]
+	defaultBranch = main
