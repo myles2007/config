@@ -3,4 +3,7 @@ unixorn/git-extra-commands
 mafredri/zsh-async
 
 zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
 ohmyzsh/ohmyzsh path:plugins/nvm
+grigorii-zander/zsh-npm-scripts-autocomplete
+

@@ -8,14 +8,15 @@ autoload -U edit-command-line
 zle -N edit-command-line 
 bindkey -M vicmd v edit-command-line
 
-source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
+BREW_PREFIX="$(brew --prefix)"
+
+source "$BREW_PREFIX/opt/antidote/share/antidote/antidote.zsh"
 
 export HOMEBREW_NO_AUTO_UPDATE=1 # Don't auto update everything with brew... let me decide.
 
 export NVM_DIR="$HOME/.nvm"
-
-#[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+  [ -s "$BREW_PREFIX/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "$BREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 zstyle ':omz:plugins:nvm' lazy yes
 
