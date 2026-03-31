@@ -302,6 +302,10 @@ fi
 alias 'gh?'='copilot_gh-assist';
 alias 'wts'='copilot_what-the-shell';
 
+def ff() {
+    aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
+}
+
 #zprof
 
 # Add libpq (without PSQL Server) installed via Brew
